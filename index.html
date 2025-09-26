@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дайджест Dome Foundation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #ffffff;
+            background: #000000;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 0;
+            background: linear-gradient(135deg, #6a4c93 0%, #8b5fbf 100%);
+            border-radius: 15px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(106, 76, 147, 0.5);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .section {
+            background: #1a1a1a;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            border-left: 5px solid #8b5fbf;
+        }
+
+        .section h2 {
+            color: #ffffff;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .section h3 {
+            color: #8b5fbf;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .section h4 {
+            color: #a569bd;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #1a1a1a;
+            min-width: 600px;
+        }
+
+        th {
+            background: linear-gradient(135deg, #6a4c93 0%, #8b5fbf 100%);
+            color: white;
+            padding: 15px 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        td {
+            padding: 15px 12px;
+            border-bottom: 1px solid #333333;
+            vertical-align: top;
+            font-size: 0.9rem;
+            color: #ffffff;
+        }
+
+        tr:hover {
+            background-color: #2a2a2a;
+        }
+
+        .project-name {
+            font-weight: 600;
+            color: #8b5fbf;
+        }
+
+        .project-type {
+            background: #8b5fbf;
+            color: #ffffff;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: inline-block;
+        }
+
+        .highlighted-project {
+            background: #2a2a2a;
+            border: 2px solid #8b5fbf;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .highlighted-project h4 {
+            color: #ffffff;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .market-info {
+            background: #333333;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 4px solid #8b5fbf;
+        }
+
+        .market-info h5 {
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .decision {
+            background: linear-gradient(135deg, #6a4c93 0%, #8b5fbf 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+
+        .investment-ideas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .investment-card {
+            background: #2a2a2a;
+            border: 1px solid #8b5fbf;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .investment-card h5 {
+            color: #ffffff;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .checkmark {
+            color: #8b5fbf;
+            margin-right: 5px;
+        }
+
+        .event-schedule {
+            background: #2a2a2a;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .event-day {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #444444;
+        }
+
+        .event-day:last-child {
+            border-bottom: none;
+        }
+
+        .event-day h5 {
+            color: #ffffff;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .event-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            padding: 8px 0;
+        }
+
+        .event-time {
+            background: #8b5fbf;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            min-width: 90px;
+            margin-right: 15px;
+            text-align: center;
+        }
+
+        .event-description {
+            flex: 1;
+            color: #ffffff;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+
+            .section h2 {
+                font-size: 1.5rem;
+            }
+
+            .section h3 {
+                font-size: 1.2rem;
+            }
+
+            th, td {
+                padding: 10px 8px;
+                font-size: 0.8rem;
+            }
+
+            .investment-ideas {
+                grid-template-columns: 1fr;
+            }
+
+            .event-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .event-time {
+                margin-bottom: 5px;
+                margin-right: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .section h2 {
+                font-size: 1.3rem;
+            }
+
+            th, td {
+                padding: 8px 6px;
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Дайджест Dome Foundation</h1>
+        </div>
+
+        <div class="section">
+            <h2>Какие проекты мы рассматривали в сентябре</h2>
+            <p style="margin-bottom: 20px;">С 01 по 26 сентября в воронку поступило: XX проектов</p>
+
+            <h3>Pre-scoring</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Проект</th>
+                            <th>Источник</th>
+                            <th>Тип</th>
+                            <th>Комментарий</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="project-name">Kicksharing</td>
+                            <td>Central Asia, мероприятие ШОС</td>
+                            <td><span class="project-type">Private Equity</span></td>
+                            <td>Шеринг-сервисы (самокаты, зарядные станции, электробайки). Возможна синергия с iMoped. В работе.</td>
+                        </tr>
+                        <tr>
+                            <td class="project-name">Horror Lab</td>
+                            <td>Мероприятие ШОС</td>
+                            <td><span class="project-type">Venture</span></td>
+                            <td>Киностудия в Казахстане. Формируем переговорную позицию.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Отказы</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Проект</th>
+                            <th>Источник</th>
+                            <th>Тип</th>
+                            <th>Причина отказа</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="project-name">MARSBIKE</td>
+                            <td>Мероприятие ШОС</td>
+                            <td><span class="project-type">Venture</span></td>
+                            <td>Производитель электрического мини-скутера. Узкий рынок, масштабируемость ограничена.</td>
+                        </tr>
+                        <tr>
+                            <td class="project-name">Plata</td>
+                            <td>От сотрудника</td>
+                            <td><span class="project-type">Private Equity</span></td>
+                            <td>Нео-банк в Мексике, от основателя Т-Банка. Ждём материалы. Нет открытой аллокации.</td>
+                        </tr>
+                        <tr>
+                            <td class="project-name">VISAVER</td>
+                            <td>Мероприятие ШОС</td>
+                            <td><span class="project-type">Venture</span></td>
+                            <td>AI-поиск по видео. Ранняя стадия, перегретый рынок, высокая конкуренция.</td>
+                        </tr>
+                        <tr>
+                            <td class="project-name">ВИТО</td>
+                            <td>Мероприятие ШОС</td>
+                            <td><span class="project-type">Private Equity</span></td>
+                            <td>Производитель фунчозы, запрос 150 млн ₽. Высокая долговая нагрузка.</td>
+                        </tr>
+                        <tr>
+                            <td class="project-name">ATLA Core</td>
+                            <td>Мероприятие ШОС</td>
+                            <td><span class="project-type">Venture</span></td>
+                            <td>AI для финсервисов. Завышенные прогнозы, ранняя стадия, нет ликвидности.</td>
+                        </tr>
+                        <tr>
+                            <td class="project-name">NTD Rus</td>
+                            <td>Мероприятие ШОС</td>
+                            <td><span class="project-type">Private Equity</span></td>
+                            <td>Диагностика дефектов металла. Узкий рынок, низкая ликвидность.</td>
+                        </tr>
+                        <tr>
+                            <td class="project-name">BITBLAZE</td>
+                            <td>Мероприятие ШОС</td>
+                            <td><span class="project-type">Private Equity</span></td>
+                            <td>Производитель вычислительной техники. Экзит через IPO в 2027 маловероятен. Решение: отказ/наблюдение.</td>
+                        </tr>
+                        <tr>
+                            <td class="project-name">Go Fun</td>
+                            <td>Мероприятие ШОС</td>
+                            <td><span class="project-type">Venture</span></td>
+                            <td>Платформа AI-рекомендаций досуга. Слабая позиция против крупных игроков.</td>
+                        </tr>
+                        <tr>
+                            <td class="project-name">Brewgo</td>
+                            <td>Мероприятие ШОС</td>
+                            <td><span class="project-type">Private Equity</span></td>
+                            <td>Вендинговые кофейные аппараты. Ранняя стадия, нет ликвидности и модели.</td>
+                        </tr>
+                        <tr>
+                            <td class="project-name">Жилищный баланс</td>
+                            <td>Мероприятие ШОС</td>
+                            <td><span class="project-type">Займ</span></td>
+                            <td>Кооператив из Беларуси. Доходность 9% в USD, но есть более надёжные инструменты.</td>
+                        </tr>
+                        <tr>
+                            <td class="project-name">СяеКуньТэнДа</td>
+                            <td>Мероприятие ШОС</td>
+                            <td><span class="project-type">Private Equity</span></td>
+                            <td>Автоэкспорт из Китая. Нет инвестиционного предложения.</td>
+                        </tr>
+                        <tr>
+                            <td class="project-name">Insof Trade</td>
+                            <td>Мероприятие ШОС</td>
+                            <td><span class="project-type">Private Equity</span></td>
+                            <td>Торгово-производственная платформа в Таджикистане и Узбекистане. Производство вне фокуса фонда.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Выделенные проекты</h2>
+            
+            <div class="highlighted-project">
+                <h4>Гудствил</h4>
+                <p>B2B-платформа для торговли продовольствием с расширенным функционалом: интеграция с 1С, ЭДО, номинальные счета для безопасных сделок, логистический модуль. Планируется поддержка валютных операций для нерезидентов.</p>
+                <p>Монетизация: подписка, комиссия 1%, доходы на остатки (15%), кэшбэк и реферальная программа (по 5%), реклама.</p>
+
+                <div class="market-info">
+                    <h5>Рыночная ситуация</h5>
+                    <ul>
+                        <li>Объём рынка АПК: $43–45 млрд (109 млн тонн).</li>
+                        <li>Производство пищевых продуктов растёт: 103–104% в 2024 г.</li>
+                        <li>90% экспорта направлено в дружественные страны.</li>
+                        <li>Цифровизация отрасли остаётся низкой (<15%).</li>
+                    </ul>
+                </div>
+
+                <div class="market-info">
+                    <h5>Что будем отслеживать:</h5>
+                    <ul>
+                        <li>Первые пилоты и GMV.</li>
+                        <li>Unit-economics на реальных сделках.</li>
+                        <li>Рост клиентской базы и повторные транзакции.</li>
+                        <li>Запуск международных операций с учётом валютного регулирования.</li>
+                    </ul>
+                </div>
+
+                <div class="decision">
+                    <strong>Решение фонда:</strong> проект переведён в статус наблюдения до подтверждения работоспособности модели, закрытия регуляторных вопросов и валидации параметров монетизации.
+                </div>
+            </div>
+
+            <div class="highlighted-project">
+                <h4>StomGel — производство зубной пасты</h4>
+                
+                <div class="market-info">
+                    <h5>Рынок (2024):</h5>
+                    <ul>
+                        <li>Аптечные продажи: 8,1 млн упаковок или 2,5 млрд ₽ (+17,7%).</li>
+                        <li>Средняя цена: 311 ₽.</li>
+                        <li>Комиссия маркетплейсов: ~17%.</li>
+                        <li>Концентрация: топ-6 брендов занимают ~72% в ритейле.</li>
+                    </ul>
+                </div>
+
+                <div class="market-info">
+                    <h5>Конкуренция:</h5>
+                    <ul>
+                        <li>В аптеках лидируют R.O.C.S., Elmex, Lacalut (43,4%).</li>
+                        <li>В ритейле — Colgate (18%), R.O.C.S. (14%), Splat (12%).</li>
+                        <li>«Длинный хвост» 28% насыщен аналогичными SKU.</li>
+                    </ul>
+                </div>
+
+                <div class="market-info">
+                    <h5>Основные барьеры:</h5>
+                    <ul>
+                        <li>Высокая конкуренция и низкие входные барьеры.</li>
+                        <li>Нет отлаженных продаж на маркетплейсах → высокий CAC.</li>
+                        <li>Требуется УТП, клинические данные, отзывы.</li>
+                        <li>Для аптек — доказательная база и маркетинг.</li>
+                    </ul>
+                </div>
+
+                <div class="market-info">
+                    <h5>Что требует проработки:</h5>
+                    <ul>
+                        <li>Стратегия выхода на маркетплейсы с учётом комиссий.</li>
+                        <li>План дифференциации и продвижения бренда.</li>
+                        <li>Канал аптек (регистрация, клинические исследования).</li>
+                        <li>Бюджет на маркетинг для платного трафика.</li>
+                    </ul>
+                </div>
+
+                <div class="decision">
+                    <strong>Решение фонда:</strong> проект переведён в статус наблюдения. Ключевые условия перехода к активному рассмотрению: доказательство повторных продаж, устойчивость каналов и положительная динамика метрик.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Инвестидеи от партнёров (Альфа-Капитал)</h2>
+            
+            <div class="investment-ideas">
+                <div class="investment-card">
+                    <h5>Для ультраконсервативных инвесторов</h5>
+                    <p>Облигации-флоутеры: ключевая ставка +1% (сейчас ~19%, с октября — 17–18%).</p>
+                    <p><span class="checkmark">✔</span>Минимальная волатильность, абсолютная ликвидность.</p>
+                    <p><span class="checkmark">✔</span>Альтернатива денежному рынку, депозитам, сберсчетам.</p>
+                </div>
+
+                <div class="investment-card">
+                    <h5>Для консервативных инвесторов</h5>
+                    <ul>
+                        <li>Облигации с фиксированным купоном (20–23% годовых, горизонт 1 год).</li>
+                        <li>Длинные ОФЗ (доходность около 28% годовых на горизонте 2 лет).</li>
+                        <li>Валютные облигации внутри РФ (6–7% в USD, топ-эмитенты 1 эшелона).</li>
+                        <li>Евробонды и депозиты за рубежом (4–8% в USD, топ-идея — евробонд Telegram с доходностью 9% до 2030).</li>
+                    </ul>
+                </div>
+
+                <div class="investment-card">
+                    <h5>Для инвестиций 2+ лет</h5>
+                    <ul>
+                        <li>Российский рынок акций (~100% за 2 года).</li>
+                        <li>Золото (привязка к USD, защита от инфляции).</li>
+                        <li>Иностранные акции (15–20%, ETF на S&P 500 и Nasdaq).</li>
+                        <li>Криптовалюта (активно управляемый фонд, от 40% годовых).</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Предстоящие мероприятия с Dome Foundation</h2>
+            
+            <h3>Сентябрь</h3>
+            <div class="event-schedule">
+                <div class="event-item">
+                    <div class="event-description"><strong>Инвест-завтрак</strong> с резидентом: Алексей Шмонов — «Личный опыт переезда и выхода на рынок США».</div>
+                </div>
+            </div>
+
+            <h3>Октябрь</h3>
+            <h4>День рождения фонда & Запуск Ермолаевских бань в Тюмени (09–12.10)</h4>
+            
+            <div class="event-schedule">
+                <div class="event-day">
+                    <h5>9 октября (четверг)</h5>
+                    <div class="event-item">
+                        <div class="event-time">10:00–15:00</div>
+                        <div class="event-description">прибытие в Тюмень</div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-time">15:00–16:30</div>
+                        <div class="event-description">заселение в отель, обед</div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-time">16:30–19:00</div>
+                        <div class="event-description">экскурсия по городу</div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-time">19:30–21:00</div>
+                        <div class="event-description">ужин (Creman)</div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-time">21:30</div>
+                        <div class="event-description">экскурсия «Марциаль»</div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-time">22:00</div>
+                        <div class="event-description">посещение термального курорта «Марциаль»</div>
+                    </div>
+                </div>
+
+                <div class="event-day">
+                    <h5>10 октября (пятница)</h5>
+                    <div class="event-item">
+                        <div class="event-time">9:00–10:00</div>
+                        <div class="event-description">завтрак</div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-time">10:00–13:00</div>
+                        <div class="event-description">инвест-тур компании «Колесник»</div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-time">13:00–15:00</div>
+                        <div class="event-description">обед с партнёрами</div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-time">15:30–17:30</div>
+                        <div class="event-description">экскурсия на пивоварню «Ермолаевъ»</div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-time">18:00–22:00</div>
+                        <div class="event-description">торжественное открытие банного комплекса «ЕрмолаевЪ»</div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-time">22:30</div>
+                        <div class="event-description">покер</div>
+                    </div>
+                </div>
+
+                <div class="event-day">
+                    <h5>11 октября (суббота)</h5>
+                    <div class="event-item">
+                        <div class="event-time">10:00–12:00</div>
+                        <div class="event-description">завтрак с Владимиром Шевчиком</div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-time">12:00–17:00</div>
+                        <div class="event-description">закрытая презентация культурно-исторического центра Распутина, поездка в Покровское (музей Распутина)</div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-time">17:00</div>
+                        <div class="event-description">Welcome party</div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-time">18:00</div>
+                        <div class="event-description">официальный старт празднования дня рождения Dome Foundation</div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-time">20:00</div>
+                        <div class="event-description">квартирник (живая музыка, интерактив, поздравления, торт)</div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-time">22:00</div>
+                        <div class="event-description">afterparty</div>
+                    </div>
+                </div>
+
+                <div class="event-day">
+                    <h5>12 октября (воскресенье)</h5>
+                    <div class="event-item">
+                        <div class="event-time">9:00–10:00</div>
+                        <div class="event-description">завтрак</div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-time">10:00</div>
+                        <div class="event-description">стратегический комитет Dome Foundation</div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-time">13:00</div>
+                        <div class="event-description">обед</div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-time">14:00</div>
+                        <div class="event-description">выезд в аэропорт</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Ноябрь</h3>
+            <h4>Инвестиционный мастермайнд в Дубае (11–15.11)</h4>
+            
+            <div class="event-schedule">
+                <div class="event-day">
+                    <h5>11 ноября (вторник)</h5>
+                    <div class="event-item">
+                        <div class="event-description">Прибытие в Дубай</div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-description">Welcome-ужин</div>
+                    </div>
+                </div>
+
+                <div class="event-day">
+                    <h5>12 ноября (среда)</h5>
+                    <div class="event-item">
+                        <div class="event-time">8:00</div>
+                        <div class="event-description">завтрак</div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-time">9:00–13:30</div>
+                        <div class="event-description">мастермайнд-сессии</div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-time">14:00</div>
+                        <div class="event-description">обед</div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-time">15:00–19:00</div>
+                        <div class="event-description">мастермайнд-сессии</div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-time">20:00</div>
+                        <div class="event-description">ужин</div>
+                    </div>
+                </div>
+
+                <div class="event-day">
+                    <h5>13 ноября (четверг)</h5>
+                    <div class="event-item">
+                        <div class="event-time">8:00</div>
+                        <div class="event-description">завтрак</div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-time">9:00–13:30</div>
+                        <div class="event-description">мастермайнд-сессии</div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-time">14:00</div>
+                        <div class="event-description">обед</div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-time">15:00–19:00</div>
+                        <div class="event-description">мастермайнд-сессии</div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-time">20:00</div>
+                        <div class="event-description">ужин</div>
+                    </div>
+                </div>
+
+                <div class="event-day">
+                    <h5>14 ноября (пятница)</h5>
+                    <div class="event-item">
+                        <div class="event-time">8:00</div>
+                        <div class="event-description">завтрак</div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-time">10:00</div>
+                        <div class="event-description">чемпионат по паделу</div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-time">14:00</div>
+                        <div class="event-description">обед</div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-time">15:00</div>
+                        <div class="event-description">визит к инвестиционным объектам</div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-time">20:00</div>
+                        <div class="event-description">заключительный ужин</div>
+                    </div>
+                </div>
+
+                <div class="event-day">
+                    <h5>15 ноября (суббота)</h5>
+                    <div class="event-item">
+                        <div class="event-description">Работа форум-группы</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
